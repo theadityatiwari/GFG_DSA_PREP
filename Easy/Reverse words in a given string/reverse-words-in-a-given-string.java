@@ -26,23 +26,8 @@ class Solution
     String reverseWords(String S)
     {
         // code here 
-        int n = S.length();
-        StringBuilder sb = new StringBuilder();
-        String temp = "";
-        for(int i=0;i<n;i++){
-            if(S.charAt(i)!='.'){
-                temp = temp + S.charAt(i);
-                if(i==n-1){
-                    sb.insert(0,temp);
-                }
-            }else{
-                sb.insert(0,temp);
-                sb.insert(0,'.');
-                temp = "";
-            }
-        }
-        
-        String s = sb.toString();
-        return s;
+        String[] words = S.split("\\.");
+        Collections.reverse(Arrays.asList(words));
+        return String.join(".", words);
     }
 }
